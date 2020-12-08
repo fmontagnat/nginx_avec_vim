@@ -1,0 +1,10 @@
+FROM nginx:1.19.5
+LABEL description="Nginx avec VIM installé"
+LABEL version="2.0"
+LABEL maintainer="fmontagnat"
+ENV QUI_DONC="Fred"
+RUN apt-get update \
+&& apt-get install -y vim
+WORKDIR /usr/share/nginx/html
+RUN mkdir mon_site \
+&& echo "site de fred" > mon_site/index.html
